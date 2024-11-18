@@ -5,17 +5,16 @@ import getUrlByAlias from "@/lib/getUrlByAlias";
 export default async function AliasPage({
   params,
 }: {
-  params: { alias: string };
+  params: Promise<{ alias: string }>;
 }) {
-  const { alias } = params;
+  const resolvedParams = await params;
+  const { alias } = resolvedParams;
   const urlData = await getUrlByAlias(alias);
 
   if (urlData) {
-    // Redirect to the original URL
     redirect(urlData.url);
-    return null; // Return null after redirecting
+    return null;
   } else {
-    // Handle alias not found
     return (
       <div>
         <h1>Alias not found</h1>
