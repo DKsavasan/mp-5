@@ -5,6 +5,8 @@ import CreateUrlForm from "@/components/CreateUrlForm";
 import { headers } from "next/headers";
 import { Box, Typography, List, ListItem, Link } from "@mui/material";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const urls = await getAllUrls();
 
