@@ -1,4 +1,3 @@
-// app/api/urls/route.ts
 import { NextResponse } from "next/server";
 import createNewUrl from "@/lib/createNewUrl";
 
